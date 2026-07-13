@@ -22,6 +22,10 @@ jobs:
         run: |
           git config user.name  "nope-bot"
           git config user.email "nope-bot@users.noreply.github.com"
-          git add data/*.csv
-          git diff --cached --quiet || git commit -m "NOPE $(date -u +%F)"
-          git push
+          if compgen -G "data/*.csv" > /dev/null; then
+            git add data/*.csv
+            git diff --cached --quiet || git commit -m "NOPE $(date -u +%F)"
+            git push
+          else
+            echo "Skip run - no data directory, nothing to commit."
+          fi
