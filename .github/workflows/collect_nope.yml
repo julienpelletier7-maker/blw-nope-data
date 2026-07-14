@@ -27,6 +27,7 @@ jobs:
           if compgen -G "data/*.csv" > /dev/null; then
             git add data/*.csv
             git diff --cached --quiet || git commit -m "NOPE $(date -u +%F)"
+            git pull --rebase
             git push
           else
             echo "Skip run - no data directory, nothing to commit."
