@@ -1,8 +1,10 @@
 name: Collect NOPE
 on:
   schedule:
-    - cron: "50 19 * * 1-5"
-    - cron: "50 20 * * 1-5"
+    - cron: "25 19 * * 1-5"
+    - cron: "45 19 * * 1-5"
+    - cron: "25 20 * * 1-5"
+    - cron: "45 20 * * 1-5"
   workflow_dispatch: {}
 permissions:
   contents: write
